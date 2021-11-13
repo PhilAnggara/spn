@@ -14,7 +14,11 @@
 </head>
 <body>
 	
-	@yield('content')
+  @include('includes.sidebar')
+  <div class="main-content" id="panel">
+    @include('includes.navbar')
+    @yield('content')
+  </div>
 
 	@stack('prepend-script')
   @include('includes.script')

@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 // Route::middleware(['auth'])->group(function () {
 
     Route::get('/', 'MainController@index')->name('home');
+    Route::resource('data-siswa', 'SiswaController');
+    Route::get('tentang', 'MainController@about')->name('about');
+    Route::get('struktur-organisasi', 'MainController@structure')->name('structure');
     
 // });
 

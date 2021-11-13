@@ -10,4 +10,14 @@ class MainController extends Controller
     {
         return view('pages.dashboard');
     }
+    
+    public function about()
+    {
+        return view('pages.tentang');
+    }
+    
+    public function structure()
+    {
+        return view('pages.struktur');
+    }
 }

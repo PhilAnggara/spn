@@ -1,56 +1,72 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+@extends('layouts.auth')
+@section('title', 'SPN Polda Sulut - Masuk')
 
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
-
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
-
-            <!-- Email Address -->
-            <div>
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+@section('content')
+<div class="main-content">
+  <div class="header bg-gradient-primary py-6 py-lg-6 pt-lg-7">
+    <div class="container">
+      <div class="header-body text-center mb-7">
+        <div class="row justify-content-center">
+          <div class="col-xl-5 col-lg-6 col-md-8 px-5">
+            <h1 class="text-white">SPN Polda Sulut</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="separator separator-bottom separator-skew zindex-100">
+      <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
+      </svg>
+    </div>
+  </div>
+  <div class="container mt--8 pb-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-5 col-md-7">
+        <div class="card bg-secondary border-0 mb-0">
+          <div class="card-body px-lg-5 py-lg-5">
+            <div class="text-center text-muted mb-4">
+              <small>Silahkan masuk untuk melanjutkan</small>
             </div>
-
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="current-password" />
-            </div>
-
-            <!-- Remember Me -->
-            <div class="block mt-4">
-                <label for="remember_me" class="inline-flex items-center">
-                    <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+            <form role="form">
+              <div class="form-group mb-3">
+                <div class="input-group input-group-merge input-group-alternative">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="ni ni-email-83"></i>
+                    </span>
+                  </div>
+                  <input class="form-control" placeholder="Email" type="email">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group input-group-merge input-group-alternative">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="ni ni-lock-circle-open"></i>
+                    </span>
+                  </div>
+                  <input class="form-control" placeholder="Password" type="password">
+                </div>
+              </div>
+              <div class="custom-control custom-control-alternative custom-checkbox">
+                <input class="custom-control-input" id=" customCheckLogin" type="checkbox">
+                <label class="custom-control-label" for=" customCheckLogin">
+                  <span class="text-muted">Ingat saya</span>
                 </label>
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
-
-                <x-button class="ml-3">
-                    {{ __('Log in') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+              </div>
+              <div class="text-center">
+                <button type="button" class="btn btn-primary my-4">Masuk</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col text-center">
+            <a href="#" class="text-light"><small>Buat akun baru</small></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+@endsection
