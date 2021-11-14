@@ -26,6 +26,10 @@ class SiswaController extends Controller
         $data = $request->all();
         $time = strtotime($request->tanggal_lahir);
         $data['tanggal_lahir'] = date('Y-m-d',$time);
+        if ($request['foto']) {
+            $ext = $request->file('foto')->extension();
+            $data['foto'] = $request->file('foto')->storeAs('gambar/siswa', $data['nama'].'.'.$ext, 'public');
+        }
         Siswa::create($data);
 
         return redirect()->back()->with('success', 'Data berhasil ditambahakan!');
@@ -43,11 +47,24 @@ class SiswaController extends Controller
     
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $time = strtotime($request->tanggal_lahir);
+        $data['tanggal_lahir'] = date('Y-m-d',$time);
+        if ($request['foto']) {
+            $ext = $request->file('foto')->extension();
+            $data['foto'] = $request->file('foto')->storeAs('gambar/siswa', $data['nama'].'.'.$ext, 'public');
+        }
+        $item = Siswa::find($id);
+        $item->update($data);
+        
+        return redirect()->back()->with('success', 'Data Berhasil Diubah!');
     }
     
     public function destroy($id)
     {
-        //
+        $item = Siswa::find($id);
+        $item->delete();
+
+        return redirect()->back()->with('success', 'Siswa dihapus!');
     }
 }

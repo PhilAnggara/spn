@@ -22,6 +22,7 @@ class CreateSiswaTable extends Migration
             $table->string('peleton');
             $table->string('kompi');
             $table->string('tahun_angkatan');
+            $table->text('foto')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

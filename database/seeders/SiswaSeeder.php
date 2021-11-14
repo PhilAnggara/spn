@@ -23,6 +23,7 @@ class SiswaSeeder extends Seeder
             'peleton' => 'IV',
             'kompi' => 'A',
             'tahun_angkatan' => '2020',
+            'foto' => 'examples/example.png'
         ]);
         Siswa::create([
             'no_siswa' => '349872399',
@@ -32,6 +33,7 @@ class SiswaSeeder extends Seeder
             'peleton' => 'V',
             'kompi' => 'B',
             'tahun_angkatan' => '2020',
+            'foto' => 'examples/example.png'
         ]);
     }
 }

@@ -38,8 +38,9 @@
           <table class="table align-items-center table-flush text-center" id="datatable-basic">
             <thead class="thead-light">
               <tr>
-                <th>Nomor Siswa</th>
+                <th>Foto</th>
                 <th>Nama</th>
+                <th>Nomor Siswa</th>
                 <th>TTL</th>
                 <th>Peleton</th>
                 <th>Kompi</th>
@@ -49,20 +50,27 @@
             <tbody>
               @foreach ($items as $item)
               <tr>
+                <td class="table-user">
+                  @if ($item->foto)
+                    <img src="{{ Storage::url($item->foto) }}" class="avatar rounded-circle mr-3" style="object-fit: cover">
+                  @else
+                    <img src="{{ url('frontend/images/profile.png') }}" class="avatar rounded-circle mr-3" style="object-fit: cover">
+                  @endif
+                </td>
+                <td><b>{{ $item->nama }}</b></td>
                 <td>{{ $item->no_siswa }}</td>
-                <td>{{ $item->nama }}</td>
                 <td>{{ $item->tempat_lahir }}, {{ Carbon\Carbon::parse($item->tanggal_lahir)->isoFormat('D MMM YYYY') }}</td>
                 <td>{{ $item->peleton }}</td>
                 <td>{{ $item->kompi }}</td>
                 <td>
                   <div class="btn-group" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-sm table-action table-action">
+                    <button type="button" class="btn btn-sm table-action table-action" data-toggle="modal" data-target="#detail-siswa-{{ $item->id }}">
                       <i class="fas fa-eye" data-toggle="tooltip" title="Detail"></i>
                     </button>
-                    <button type="button" class="btn btn-sm table-action table-action">
+                    <button type="button" class="btn btn-sm table-action table-action" data-toggle="modal" data-target="#edit-siswa-{{ $item->id }}">
                       <i class="fas fa-user-edit" data-toggle="tooltip" title="Edit"></i>
                     </button>
-                    <button type="button" class="btn btn-sm table-action table-action-delete">
+                    <button type="button" class="btn btn-sm table-action table-action-delete" data-toggle="modal" data-target="#hapus-siswa-{{ $item->id }}">
                       <i class="fas fa-trash" data-toggle="tooltip" title="Hapus"></i>
                     </button>
                   </div>
