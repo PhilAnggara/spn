@@ -14,7 +14,9 @@
 <script src="{{ url('frontend/assets/vendor/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
 <script src="{{ url('frontend/assets/vendor/datatables.net-buttons/js/buttons.flash.min.js') }}"></script>
 <script src="{{ url('frontend/assets/vendor/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
-<script src="{{ url('frontend/assets/vendor/datatables.net-select/js/dataTables.select.min.js') }}"></script>
+{{-- <script src="{{ url('frontend/assets/vendor/datatables.net-select/js/dataTables.select.min.js') }}"></script> --}}
+<script src="{{ url('frontend/assets/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
+<script src="{{ url('frontend/assets/vendor/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js') }}"></script>
 
 <script src="{{ url('frontend/assets/js/argon.js?v=1.1.0') }}"></script>
 
