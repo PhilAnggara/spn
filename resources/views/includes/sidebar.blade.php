@@ -38,7 +38,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{ Request::is('daftar-nilai') ? 'active' : '' }}" href="{{ route("home") }}">
+            <a class="nav-link {{ Request::is('daftar-nilai') ? 'active' : '' }}" href="{{ route("daftar-nilai.index") }}">
               <i class="far fa-file-chart-line text-primary"></i>
               <span class="nav-link-text">Daftar Nilai</span>
             </a>
@@ -47,6 +47,12 @@
             <a class="nav-link {{ Request::is('tentang') ? 'active' : '' }}" href="{{ route("about") }}">
               <i class="far fa-info-circle text-primary"></i>
               <span class="nav-link-text">Tentang</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{ Request::is('galeri') ? 'active' : '' }}" href="{{ route("about") }}">
+              <i class="far fa-images text-primary"></i>
+              <span class="nav-link-text">Galeri</span>
             </a>
           </li>
           <li class="nav-item">

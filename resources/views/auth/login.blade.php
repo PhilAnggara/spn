@@ -32,10 +32,10 @@
                 <div class="input-group input-group-merge input-group-alternative">
                   <div class="input-group-prepend">
                     <span class="input-group-text">
-                      <i class="ni ni-email-83"></i>
+                      <i class="ni ni-single-copy-04"></i>
                     </span>
                   </div>
-                  <input class="form-control" placeholder="Email" type="email">
+                  <input class="form-control" placeholder="NRP" type="email">
                 </div>
               </div>
               <div class="form-group">

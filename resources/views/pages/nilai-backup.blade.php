@@ -27,41 +27,42 @@
           </button>
         </div>
         @endif
-        
+
         <div class="table-responsive py-4">
           <table class="table align-items-center table-flush text-center" id="datatable-basic">
             <thead class="thead-light">
               <tr>
                 <th>Nomor Siswa</th>
                 <th>Nama</th>
+                <th>Nilai</th>
                 @foreach ($mapel as $mp)
-                  <th>{{ $mp->nama_mapel }}</th>
+                <th>{{ $mp->nama_mapel }}</th>
                 @endforeach
                 <th></th>
               </tr>
             </thead>
             <tbody>
               @foreach ($siswa as $s)
-                <tr>
-                  <td>{{ $s->no_siswa }}</td>
-                  <td>{{ $s->nama }}</td>
-                  @foreach ($mapel as $mp)
-                    <td>{{ $mp->nilai->where('id_siswa', $s->id)->first() ? $mp->nilai->where('id_siswa', $s->id)->first()->nilai : '-' }}</td>
-                  @endforeach
-                  <td>
-                    <button type="button" class="btn btn-sm btn-neutral btn-round btn-icon" data-toggle="modal" data-target="#edit-nilai-{{ $s->id }}">
-                      <span class="btn-inner--icon" data-toggle="tooltip" data-original-title="Edit Nilai"><i class="fas fa-user-edit"></i></span>
-                      <span class="btn-inner--text">Edit Nilai</span>
-                    </button>
-                  </td>
-                </tr>
+              <tr>
+                <td>{{ $s->no_siswa }}</td>
+                <td>{{ $s->nama }}</td>
+                @foreach ($mapel as $mp)
+                <td>{{ $mp->nilai->where('id_siswa', $s->id)->first() ? $mp->nilai->where('id_siswa', $s->id)->first()->nilai : '-' }}</td>
+                @endforeach
+                <td>
+                  <button type="button" class="btn btn-sm btn-neutral btn-round btn-icon" data-toggle="modal" data-target="#edit-nilai-{{ $s->id }}">
+                    <span class="btn-inner--icon" data-toggle="tooltip" data-original-title="Edit Nilai"><i class="fas fa-user-edit"></i></span>
+                    <span class="btn-inner--text">Edit Nilai</span>
+                  </button>
+                </td>
+              </tr>
               @endforeach
             </tbody>
           </table>
         </div>
+
       </div>
     </div>
   </div>
 </div>
-{{-- @include('includes.modal.siswa-modal') --}}
 @endsection

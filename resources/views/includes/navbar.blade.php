@@ -19,7 +19,7 @@
           <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="media align-items-center">
               <span class="avatar avatar-sm rounded-circle">
-                <img src="https://ui-avatars.com/api/?background=37adf7&color=ffffff&bold=true&name=Exser Maratade" alt="Foto Profil Pengguna">
+                <img src="{{ url('frontend/images/profile.png') }}">
               </span>
               <div class="media-body ml-2 d-none d-lg-block">
                 <span class="mb-0 text-sm  font-weight-bold">Exer Maratade</span>
