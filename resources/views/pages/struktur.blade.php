@@ -17,7 +17,7 @@
   <div class="row">
     <div class="col">
       <div class="card">
-        
+        <img src="{{ url('frontend/images/struktur.png') }}" class="img-fluid" alt="Responsive image">
       </div>
     </div>
   </div>
