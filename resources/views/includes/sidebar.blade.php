@@ -50,7 +50,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{ Request::is('galeri') ? 'active' : '' }}" href="{{ route("about") }}">
+            <a class="nav-link {{ Request::is('galeri') ? 'active' : '' }}" href="{{ route("galeri") }}">
               <i class="far fa-images text-primary"></i>
               <span class="nav-link-text">Galeri</span>
             </a>

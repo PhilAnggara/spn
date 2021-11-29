@@ -19,6 +19,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('data-siswa', 'SiswaController');
     Route::resource('daftar-nilai', 'NilaiController');
     Route::get('tentang', 'MainController@about')->name('about');
+    Route::get('galeri', 'MainController@galeri')->name('galeri');
     Route::get('struktur-organisasi', 'MainController@structure')->name('structure');
     
 });

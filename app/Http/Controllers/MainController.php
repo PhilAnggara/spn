@@ -22,6 +22,11 @@ class MainController extends Controller
         return view('pages.tentang');
     }
     
+    public function galeri()
+    {
+        return view('pages.galeri');
+    }
+    
     public function structure()
     {
         return view('pages.struktur');
