@@ -27,15 +27,25 @@
             <div class="text-center text-muted mb-4">
               <small>Silahkan masuk untuk melanjutkan</small>
             </div>
-            <form role="form">
+            @error('nrp')
+              <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                NRP atau Password salah
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            @enderror
+            <form action="{{ route('login') }}" method="POST">
+              @csrf
+
               <div class="form-group mb-3">
                 <div class="input-group input-group-merge input-group-alternative">
                   <div class="input-group-prepend">
                     <span class="input-group-text">
-                      <i class="ni ni-single-copy-04"></i>
+                      <i class="fa fa-id-card"></i>
                     </span>
                   </div>
-                  <input class="form-control" placeholder="NRP" type="email">
+                  <input name="nrp" class="form-control" value="{{ old('nrp') }}" placeholder="NRP" type="number" autofocus autocomplete="off" required>
                 </div>
               </div>
               <div class="form-group">
@@ -45,24 +55,25 @@
                       <i class="ni ni-lock-circle-open"></i>
                     </span>
                   </div>
-                  <input class="form-control" placeholder="Password" type="password">
+                  <input name="password" class="form-control" placeholder="Password" type="password" required>
                 </div>
               </div>
               <div class="custom-control custom-control-alternative custom-checkbox">
-                <input class="custom-control-input" id=" customCheckLogin" type="checkbox">
-                <label class="custom-control-label" for=" customCheckLogin">
+                <input name="remember" class="custom-control-input" id=" remember" type="checkbox">
+                <label class="custom-control-label" for=" remember">
                   <span class="text-muted">Ingat saya</span>
                 </label>
               </div>
               <div class="text-center">
-                <button type="button" class="btn btn-primary my-4">Masuk</button>
+                <button type="submit" class="btn btn-primary my-4">Masuk</button>
               </div>
+              
             </form>
           </div>
         </div>
         <div class="row mt-3">
           <div class="col text-center">
-            <a href="#" class="text-light"><small>Buat akun baru</small></a>
+            <a href="{{ route('register') }}" class="text-light"><small>Buat akun baru</small></a>
           </div>
         </div>
       </div>

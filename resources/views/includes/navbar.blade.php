@@ -22,18 +22,21 @@
                 <img src="{{ url('frontend/images/profile.png') }}">
               </span>
               <div class="media-body ml-2 d-none d-lg-block">
-                <span class="mb-0 text-sm  font-weight-bold">Exer Maratade</span>
+                <span class="mb-0 text-sm  font-weight-bold">{{ auth()->user()->name }}</span>
               </div>
             </div>
           </a>
           <div class="dropdown-menu dropdown-menu-right">
             <div class="dropdown-header noti-title d-md-none">
-              <h6 class="text-overflow m-0">Exer Maratade</h6>
+              <h6 class="text-overflow m-0">{{ auth()->user()->name }}</h6>
             </div>
-            <a href="#!" class="dropdown-item">
-              <i class="ni ni-button-power"></i>
-              <span>Keluar</span>
-            </a>
+            <form action="{{ url('logout') }}" method="POST">
+              @csrf
+              <button type="submit" class="dropdown-item">
+                <i class="ni ni-button-power"></i>
+                <span>Keluar</span>
+              </button>
+            </form>
           </div>
         </li>
       </ul>
