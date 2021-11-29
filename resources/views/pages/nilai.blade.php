@@ -63,5 +63,5 @@
     </div>
   </div>
 </div>
-{{-- @include('includes.modal.siswa-modal') --}}
+@include('includes.modal.nilai-modal')
 @endsection

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\MataPelajaran;
 use App\Models\Siswa;
 use Illuminate\Http\Request;
 
@@ -10,9 +11,11 @@ class SiswaController extends Controller
     public function index()
     {
         $items = Siswa::all();
+        $mapel = MataPelajaran::all();
 
         return view('pages.siswa', [
-            'items' => $items
+            'items' => $items,
+            'mapel' => $mapel
         ]);
     }
     

@@ -4,15 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\MataPelajaran;
 use App\Models\Siswa;
+use App\Models\Nilai;
 use Illuminate\Http\Request;
 
 class NilaiController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $siswa = Siswa::with('nilai')->get();
@@ -24,67 +20,52 @@ class NilaiController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $mapel = MataPelajaran::all();
+
+        foreach ($mapel as $mp) {
+            // Cek apakah field nilai tidak kosong
+            if ($data['mp_'.$mp->id]) {
+                // Cek apakah nilai sudah pernah diisi atau belum
+                if ($request->has('nilai_'.$mp->id)) {
+                    $nilai = Nilai::find($data['nilai_'.$mp->id]);
+                    $nilai->nilai = $data['mp_'.$mp->id];
+                    $nilai->save();
+                } else {
+                    Nilai::create([
+                        'id_siswa' => $id,
+                        'id_mapel' => $mp->id,
+                        'nilai' => $data['mp_'.$mp->id]
+                    ]);
+                }
+            }            
+        }
+
+        return redirect()->back()->with('success', 'Nilai berhasil disimpan!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //
