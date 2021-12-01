@@ -18,6 +18,11 @@
         <li class="nav-item dropdown">
           <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="media align-items-center">
+              @if (auth()->user()->level == 'admin')
+                <span class="badge badge-pill badge-success mr-3">Admin</span>
+              @else
+                <span class="badge badge-pill badge-info mr-3">Pejabat Utama</span>
+              @endif
               <span class="avatar avatar-sm rounded-circle">
                 <img src="{{ url('frontend/images/profile.png') }}">
               </span>

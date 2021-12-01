@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'checkLevel:admin,pejabat'])->group(function () {
 
     Route::get('/', 'MainController@index')->name('home');
     Route::resource('data-siswa', 'SiswaController');

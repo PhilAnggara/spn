@@ -16,9 +16,23 @@ class UserSeeder extends Seeder
     public function run()
     {
         User::create([
-            'name' => 'Nama Admin',
-            'nrp' => '23094735',
+            'name' => 'Admin',
+            'nrp' => '12345678910',
             'email' => 'admin@gmail.com',
+            'password' => Hash::make('Admin123'),
+            'level' => 'admin'
+        ]);
+        User::create([
+            'name' => 'Pejabat Utama',
+            'nrp' => '12345678911',
+            'email' => 'pejabat@gmail.com',
+            'password' => Hash::make('Admin123'),
+            'level' => 'pejabat'
+        ]);
+        User::create([
+            'name' => 'Pengguna Biasa',
+            'nrp' => '12345678912',
+            'email' => 'penggunabiasa@gmail.com',
             'password' => Hash::make('Admin123')
         ]);
     }
