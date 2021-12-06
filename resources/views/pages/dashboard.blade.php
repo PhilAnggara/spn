@@ -34,7 +34,7 @@
               <div class="row">
                 <div class="col">
                   <h5 class="card-title text-uppercase text-muted mb-0">Nilai Akademik</h5>
-                  <span class="h2 font-weight-bold mb-0">7.5</span>
+                  <span class="h2 font-weight-bold mb-0">{{ $akademik }}</span>
                 </div>
                 <div class="col-auto">
                   <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
@@ -51,7 +51,7 @@
               <div class="row">
                 <div class="col">
                   <h5 class="card-title text-uppercase text-muted mb-0">Nilai Mental</h5>
-                  <span class="h2 font-weight-bold mb-0">6.7</span>
+                  <span class="h2 font-weight-bold mb-0">{{ $mental }}</span>
                 </div>
                 <div class="col-auto">
                   <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
@@ -68,7 +68,7 @@
               <div class="row">
                 <div class="col">
                   <h5 class="card-title text-uppercase text-muted mb-0">Jumlah Kompi</h5>
-                  <span class="h2 font-weight-bold mb-0">8</span>
+                  <span class="h2 font-weight-bold mb-0">{{ $kompi }}</span>
                 </div>
                 <div class="col-auto">
                   <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
