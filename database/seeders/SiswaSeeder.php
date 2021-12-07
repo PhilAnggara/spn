@@ -36,7 +36,7 @@ class SiswaSeeder extends Seeder
             'foto' => 'examples/example.png'
         ]);
         Siswa::create([
-            'id_ta' => 5,
+            'id_ta' => 4,
             'no_siswa' => '349872399',
             'nama' => 'Risaldi Ladohuru',
             'tempat_lahir' => 'Tompaso',

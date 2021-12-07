@@ -35,12 +35,17 @@
             <input type="text" name="kompi" class="form-control" id="kompi" placeholder="masukan kompi" autocomplete="off" required>
           </div>
           <div class="form-group">
-            <label class="form-control-label" for="tahun_angkatan">Tahun Angkatan</label>
-            <select class="form-control" id="tahun_angkatan" name="tahun_angkatan" required>
+            <label class="form-control-label" for="id_ta">Tahun Angkatan</label>
+            {{-- <select class="form-control" id="tahun_angkatan" name="tahun_angkatan" required>
               <option value="" selected disabled>-- Pilih tahun angkatan --</option>
               <option value="2021">TA 2021</option>
               <option value="2020">TA 2020</option>
               <option value="2019">TA 2019</option>
+            </select> --}}
+            <select class="form-control" id="id_ta" name="id_ta" required>
+              @foreach ($tahun_angkatan as $ta)
+                <option value="{{ $ta->id }}">TA {{ $ta->ta }}</option>
+              @endforeach
             </select>
           </div>
           <div class="form-group">
@@ -88,7 +93,7 @@
                   {{ $item->tempat_lahir }}, {{ Carbon\Carbon::parse($item->tanggal_lahir)->isoFormat('D MMMM YYYY') }}
                 </p>
                 <p class="card-text">Peleton {{ $item->peleton }}, Kompi {{ $item->kompi }}</p>
-                <p class="card-text"><small class="text-muted">TA {{ $item->tahun_angkatan }}</small></p>
+                <p class="card-text"><small class="text-muted">TA {{ $item->ta->ta }}</small></p>
               </div>
             </div>
             {{-- <div class="table-responsive">
@@ -158,12 +163,11 @@
             <input type="text" name="kompi" class="form-control" id="kompi" placeholder="masukan kompi" autocomplete="off" value="{{ $item->kompi }}" required>
           </div>
           <div class="form-group">
-            <label class="form-control-label" for="tahun_angkatan">Tahun Angkatan</label>
-            <select class="form-control" id="tahun_angkatan" name="tahun_angkatan" required>
-              <option value="" selected disabled>-- Pilih tahun angkatan --</option>
-              <option {{ $item->tahun_angkatan == '2021' ? 'selected' : '' }} value="2021">TA 2021</option>
-              <option {{ $item->tahun_angkatan == '2020' ? 'selected' : '' }} value="2020">TA 2020</option>
-              <option {{ $item->tahun_angkatan == '2019' ? 'selected' : '' }} value="2019">TA 2019</option>
+            <label class="form-control-label" for="id_ta">Tahun Angkatan</label>
+            <select class="form-control" id="id_ta" name="id_ta" required>
+              @foreach ($tahun_angkatan as $ta)
+                <option {{ $item->id_ta == $ta->id ? 'selected' : '' }} value="{{ $ta->id }}">TA {{ $ta->ta }}</option>
+              @endforeach
             </select>
           </div>
           <div class="form-group">

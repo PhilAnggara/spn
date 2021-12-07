@@ -20,6 +20,8 @@
             <div class="media align-items-center">
               @if (auth()->user()->level == 'admin')
                 <span class="badge badge-pill badge-success mr-3">Admin</span>
+              @elseif (auth()->user()->level == 'instruktur')
+                <span class="badge badge-pill badge-warning mr-3">Instruktur</span>
               @else
                 <span class="badge badge-pill badge-info mr-3">Pejabat Utama</span>
               @endif

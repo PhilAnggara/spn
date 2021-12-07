@@ -33,12 +33,12 @@
             <div class="card-body">
               <div class="row">
                 <div class="col">
-                  <h5 class="card-title text-uppercase text-muted mb-0">Nilai Akademik</h5>
-                  <span class="h2 font-weight-bold mb-0">{{ $akademik }}</span>
+                  <h5 class="card-title text-uppercase text-muted mb-0">Instruktur</h5>
+                  <span class="h2 font-weight-bold mb-0">{{ $instruktur }}</span>
                 </div>
                 <div class="col-auto">
-                  <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
-                    <i class="far fa-books"></i>
+                  <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
+                    <i class="far fa-chalkboard-teacher"></i>
                   </div>
                 </div>
               </div>
@@ -50,12 +50,12 @@
             <div class="card-body">
               <div class="row">
                 <div class="col">
-                  <h5 class="card-title text-uppercase text-muted mb-0">Nilai Mental</h5>
-                  <span class="h2 font-weight-bold mb-0">{{ $mental }}</span>
+                  <h5 class="card-title text-uppercase text-muted mb-0">Mata Pelajaran</h5>
+                  <span class="h2 font-weight-bold mb-0">{{ $mapel }}</span>
                 </div>
                 <div class="col-auto">
-                  <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
-                    <i class="far fa-head-side-brain"></i>
+                  <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
+                    <i class="far fa-books"></i>
                   </div>
                 </div>
               </div>

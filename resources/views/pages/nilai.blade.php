@@ -37,9 +37,10 @@
                 @foreach ($mapel as $mp)
                   <th>{{ $mp->nama_mapel }}</th>
                 @endforeach
-                @if (auth()->user()->level == 'admin')
+                {{-- <th>Rata-rata</th> --}}
+                {{-- @if (auth()->user()->level == 'admin')
                   <th></th>
-                @endif
+                @endif --}}
               </tr>
             </thead>
             <tbody>
@@ -50,14 +51,15 @@
                   @foreach ($mapel as $mp)
                     <td>{{ $mp->nilai->where('id_siswa', $s->id)->first() ? $mp->nilai->where('id_siswa', $s->id)->first()->nilai : '-' }}</td>
                   @endforeach
-                  @if (auth()->user()->level == 'admin')
+                  {{-- <th>{{ $s->nilai->sum('nilai') / $mapel->count() }}</th> --}}
+                  {{-- @if (auth()->user()->level == 'admin')
                     <td>
                       <button type="button" class="btn btn-sm btn-neutral btn-round btn-icon" data-toggle="modal" data-target="#edit-nilai-{{ $s->id }}">
                         <span class="btn-inner--icon" data-toggle="tooltip" data-original-title="Edit Nilai"><i class="fas fa-user-edit"></i></span>
                         <span class="btn-inner--text">Edit Nilai</span>
                       </button>
                     </td>
-                  @endif
+                  @endif --}}
                 </tr>
               @endforeach
             </tbody>

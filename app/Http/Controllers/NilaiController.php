@@ -11,8 +11,8 @@ class NilaiController extends Controller
 {
     public function index()
     {
-        $siswa = Siswa::with('nilai')->get();
-        $mapel = MataPelajaran::with('nilai')->get();
+        $siswa = Siswa::where('id_ta', $this->cta)->with('nilai')->get();
+        $mapel = MataPelajaran::where('id_ta', $this->cta)->with('nilai')->get();
 
         return view('pages.nilai', [
             'siswa' => $siswa,

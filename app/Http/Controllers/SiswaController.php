@@ -4,18 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\MataPelajaran;
 use App\Models\Siswa;
+use App\Models\TahunAngkatan;
 use Illuminate\Http\Request;
 
 class SiswaController extends Controller
 {
     public function index()
     {
-        $items = Siswa::all();
-        $mapel = MataPelajaran::all();
+        $items = Siswa::where('id_ta', $this->cta)->get();
+        $mapel = MataPelajaran::where('id_ta', $this->cta)->get();
+        $tahun_angkatan = TahunAngkatan::all()->sortDesc();
 
         return view('pages.siswa', [
             'items' => $items,
-            'mapel' => $mapel
+            'tahun_angkatan' => $tahun_angkatan
         ]);
     }
     

@@ -43,6 +43,26 @@
               <span class="nav-link-text">Daftar Nilai</span>
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link {{ Request::is('mata-pelajaran') ? 'active' : '' }}" href="{{ route("mata-pelajaran.index") }}">
+              <i class="far fa-books text-primary"></i>
+              <span class="nav-link-text">Mata Pelajaran</span>
+            </a>
+          </li>
+          {{-- @if (auth()->user()->level == 'admin') --}}
+            <li class="nav-item">
+              <a class="nav-link {{ Request::is('tahun-akademik') ? 'active' : '' }}" href="{{ route("tahun-akademik.index") }}">
+                <i class="far fa-calendar-alt text-primary"></i>
+                <span class="nav-link-text">Tahun Akademik</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {{ Request::is('data-pengguna') ? 'active' : '' }}" href="{{ route("data-pengguna.index") }}">
+                <i class="far fa-user-shield text-primary"></i>
+                <span class="nav-link-text">Data Pengguna</span>
+              </a>
+            </li>
+          {{-- @endif --}}
           {{-- <li class="nav-item">
             <a class="nav-link {{ Request::is('tentang') ? 'active' : '' }}" href="{{ route("about") }}">
               <i class="far fa-info-circle text-primary"></i>

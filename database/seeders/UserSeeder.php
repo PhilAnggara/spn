@@ -57,11 +57,5 @@ class UserSeeder extends Seeder
             'password' => Hash::make('Admin123'),
             'level' => 'instruktur'
         ]);
-        User::create([
-            'name' => 'Pengguna Biasa',
-            'nrp' => '1234567896',
-            'email' => 'penggunabiasa@gmail.com',
-            'password' => Hash::make('Admin123')
-        ]);
     }
 }
