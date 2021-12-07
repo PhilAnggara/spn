@@ -43,7 +43,7 @@
               <span class="nav-link-text">Daftar Nilai</span>
             </a>
           </li>
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a class="nav-link {{ Request::is('tentang') ? 'active' : '' }}" href="{{ route("about") }}">
               <i class="far fa-info-circle text-primary"></i>
               <span class="nav-link-text">Tentang</span>
@@ -60,7 +60,7 @@
               <i class="far fa-sitemap text-primary"></i>
               <span class="nav-link-text">Struktur Organisasi</span>
             </a>
-          </li>
+          </li> --}}
         </ul>
       </div>
     </div>

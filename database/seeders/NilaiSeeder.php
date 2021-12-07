@@ -17,32 +17,56 @@ class NilaiSeeder extends Seeder
         Nilai::create([
             'id_siswa' => '1',
             'id_mapel' => '1',
-            'nilai' => '80',
+            'tugas_kelas' => '100',
+            'tugas_individu' => '100',
+            'praktikum' => '100',
+            'uas' => '100',
+            'nilai' => '100',
         ]);
         Nilai::create([
             'id_siswa' => '1',
             'id_mapel' => '2',
-            'nilai' => '85',
+            'tugas_kelas' => '100',
+            'tugas_individu' => '100',
+            'praktikum' => '100',
+            'uas' => '100',
+            'nilai' => '100',
         ]);
         Nilai::create([
             'id_siswa' => '1',
             'id_mapel' => '3',
-            'nilai' => '75',
+            'tugas_kelas' => '100',
+            'tugas_individu' => '100',
+            'praktikum' => '100',
+            'uas' => '100',
+            'nilai' => '100',
         ]);
         Nilai::create([
             'id_siswa' => '1',
             'id_mapel' => '4',
-            'nilai' => '90',
+            'tugas_kelas' => '100',
+            'tugas_individu' => '100',
+            'praktikum' => '100',
+            'uas' => '100',
+            'nilai' => '100',
         ]);
         Nilai::create([
             'id_siswa' => '2',
             'id_mapel' => '1',
-            'nilai' => '70',
+            'tugas_kelas' => '100',
+            'tugas_individu' => '100',
+            'praktikum' => '100',
+            'uas' => '100',
+            'nilai' => '100',
         ]);
         Nilai::create([
             'id_siswa' => '2',
             'id_mapel' => '3',
-            'nilai' => '80',
+            'tugas_kelas' => '100',
+            'tugas_individu' => '100',
+            'praktikum' => '100',
+            'uas' => '100',
+            'nilai' => '100',
         ]);
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMataPelajaranTable extends Migration
+class CreateTahunAngkatanTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateMataPelajaranTable extends Migration
      */
     public function up()
     {
-        Schema::create('mata_pelajaran', function (Blueprint $table) {
+        Schema::create('tahun_angkatan', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_ta');
-            $table->foreignId('id_instruktur');
-            $table->string('nama_mapel');
+            $table->string('ta');
+            $table->boolean('aktif');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -30,6 +29,6 @@ class CreateMataPelajaranTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mata_pelajaran');
+        Schema::dropIfExists('tahun_angkatan');
     }
 }

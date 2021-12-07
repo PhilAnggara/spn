@@ -91,13 +91,12 @@
                 <p class="card-text"><small class="text-muted">TA {{ $item->tahun_angkatan }}</small></p>
               </div>
             </div>
-            <div class="table-responsive">
+            {{-- <div class="table-responsive">
               <table class="table table-hover table-bordered text-nowrap mb-0">
                 <thead class="thead-light">
                   <tr>
                     <th>Mata Pelajaran</th>
                     <th>Nilai</th>
-                    {{-- <th></th> --}}
                   </tr>
                 </thead>
                 <tbody>
@@ -107,17 +106,11 @@
                       <th>
                         {{ $mp->nilai->where('id_siswa', $item->id)->first() ? $mp->nilai->where('id_siswa', $item->id)->first()->nilai : '-' }}
                       </th>
-                      {{-- <td class="text-center">
-                        <button type="button" class="btn btn-sm btn-neutral btn-round btn-icon" data-toggle="modal" data-target="#edit-siswa-">
-                          <span class="btn-inner--icon" data-toggle="tooltip" data-original-title="Edit"><i class="fas fa-pencil-alt"></i></span>
-                          <span class="btn-inner--text">Edit</span>
-                        </button>
-                      </td> --}}
                     </tr>
                   @endforeach
                 </tbody>
               </table>
-            </div>
+            </div> --}}
           </div>
         </div>
       </div>

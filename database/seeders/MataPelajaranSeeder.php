@@ -15,15 +15,23 @@ class MataPelajaranSeeder extends Seeder
     public function run()
     {
         MataPelajaran::create([
+            'id_ta' => 1,
+            'id_instruktur' => 1,
             'nama_mapel' => 'FT Reserse',
         ]);
         MataPelajaran::create([
+            'id_ta' => 1,
+            'id_instruktur' => 1,
             'nama_mapel' => 'FT Sabara',
         ]);
         MataPelajaran::create([
+            'id_ta' => 1,
+            'id_instruktur' => 2,
             'nama_mapel' => 'FT BINMAS',
         ]);
         MataPelajaran::create([
+            'id_ta' => 1,
+            'id_instruktur' => 3,
             'nama_mapel' => 'FT INTELKAM',
         ]);
     }

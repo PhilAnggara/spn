@@ -17,6 +17,10 @@ class CreateNilaiTable extends Migration
             $table->id();
             $table->foreignId('id_siswa');
             $table->foreignId('id_mapel');
+            $table->integer('tugas_kelas');
+            $table->integer('tugas_individu');
+            $table->integer('praktikum');
+            $table->integer('uas');
             $table->integer('nilai');
             $table->timestamps();
             $table->softDeletes();
