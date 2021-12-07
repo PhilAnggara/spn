@@ -22,7 +22,17 @@ class TahunAkademikController extends Controller
     
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        if ($data['aktif']) {
+            $current = TahunAngkatan::where('aktif',1)->first();
+            $current->aktif = 0;
+            $current->save();
+        }
+
+        TahunAngkatan::create($data);
+
+        return redirect()->back()->with('success', 'Data berhasil ditambahakan!');
     }
     
     public function show($id)
@@ -37,7 +47,18 @@ class TahunAkademikController extends Controller
     
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+
+        if ($data['aktif']) {
+            $current = TahunAngkatan::where('aktif',1)->first();
+            $current->aktif = 0;
+            $current->save();
+        }
+        
+        $item = TahunAngkatan::find($id);
+        $item->update($data);
+        
+        return redirect()->back()->with('success', 'Data Berhasil Diubah!');
     }
     
     public function destroy($id)
