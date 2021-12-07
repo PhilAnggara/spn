@@ -38,6 +38,16 @@
         </div>
         @endif
         
+        @if (session('errors'))
+        <div class="alert alert-danger alert-dismissible fade show mt-3 mx-3 shadow" role="alert">
+          <span class="alert-icon"><i class="fa fa-times-circle"></i></span>
+          <span class="alert-text"><strong>Data gagal disimpan!</strong> periksa kembali inputan anda</span>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        @endif
+        
         <div class="table-responsive py-4">
           <table class="table align-items-center table-flush text-center">
             <thead class="thead-light">
@@ -67,7 +77,7 @@
                     <button type="button" class="btn btn-sm table-action table-action" data-toggle="modal" data-target="#edit-pengguna-{{ $item->id }}">
                       <i class="fas fa-user-edit" data-toggle="tooltip" title="Edit"></i>
                     </button>
-                    <button type="button" class="btn btn-sm table-action table-action-delete" data-toggle="modal" data-target="#hapus-pengguna-{{ $item->id }}">
+                    <button type="button" class="btn btn-sm table-action table-action-delete" data-toggle="modal" data-target="#hapus-pengguna-{{ $item->id }}" {{ $item->level == 'admin' ? 'disabled' : '' }}>
                       <i class="fas fa-trash" data-toggle="tooltip" title="Hapus"></i>
                     </button>
                   </div>
@@ -81,5 +91,5 @@
     </div>
   </div>
 </div>
-{{-- @include('includes.modal.siswa-modal') --}}
+@include('includes.modal.data-pengguna-modal')
 @endsection

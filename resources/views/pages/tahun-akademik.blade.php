@@ -59,7 +59,7 @@
                     <button type="button" class="btn btn-sm table-action table-action" data-toggle="modal" data-target="#edit-ta-{{ $item->id }}">
                       <i class="fas fa-edit" data-toggle="tooltip" title="Edit"></i>
                     </button>
-                    <button type="button" class="btn btn-sm table-action table-action-delete" data-toggle="modal" data-target="#hapus-ta-{{ $item->id }}">
+                    <button type="button" class="btn btn-sm table-action table-action-delete" data-toggle="modal" data-target="#hapus-ta-{{ $item->id }}" {{ $item->aktif ? 'disabled' : ''}}>
                       <i class="fas fa-trash" data-toggle="tooltip" title="Hapus"></i>
                     </button>
                   </div>

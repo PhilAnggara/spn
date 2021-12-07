@@ -58,7 +58,7 @@
             <label class="form-control-label" for="aktif">Status Aktif</label>
             <div class="mt-2">
               <label class="custom-toggle custom-toggle-success">
-                <input type="hidden" name="aktif" value="0">
+                <input type="hidden" name="aktif" value="{{ $item->aktif ? 1 : 0 }}">
                 <input type="checkbox" name="aktif" id="aktif" value="1" {{ $item->aktif ? 'checked disabled' : '' }}>
                 <span class="custom-toggle-slider rounded-circle" data-label-off="Tidak" data-label-on="Ya"></span>
               </label>

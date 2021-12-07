@@ -17,5 +17,9 @@ class Controller extends BaseController
     public function __construct() 
     {
         $this->cta = TahunAngkatan::where('aktif', 1)->first()->id;
+        // $this->cta = TahunAngkatan::where('aktif', 1)->first();
+        // if ($this->cta) {
+        //     $this->cta = $this->cta->id;
+        // }
     }
 }
