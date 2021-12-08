@@ -14,10 +14,12 @@ class SiswaController extends Controller
         $items = Siswa::where('id_ta', $this->cta)->get();
         $mapel = MataPelajaran::where('id_ta', $this->cta)->get();
         $tahun_angkatan = TahunAngkatan::all()->sortDesc();
+        $cur_ta = $this->cta;
 
         return view('pages.siswa', [
             'items' => $items,
-            'tahun_angkatan' => $tahun_angkatan
+            'tahun_angkatan' => $tahun_angkatan,
+            'cur_ta' => $cur_ta
         ]);
     }
     
@@ -42,7 +44,16 @@ class SiswaController extends Controller
     
     public function show($id)
     {
-        //
+        $items = Siswa::where('id_ta', $id)->get();
+        $mapel = MataPelajaran::where('id_ta', $this->cta)->get();
+        $tahun_angkatan = TahunAngkatan::all()->sortDesc();
+        $cur_ta = $id;
+
+        return view('pages.siswa', [
+            'items' => $items,
+            'tahun_angkatan' => $tahun_angkatan,
+            'cur_ta' => $cur_ta
+        ]);
     }
     
     public function edit($id)

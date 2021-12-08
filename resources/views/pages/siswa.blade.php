@@ -7,7 +7,17 @@
     <div class="header-body">
       <div class="row align-items-center py-4">
         <div class="col-lg-6 col-7">
-          <h1 class="text-white d-inline-block mb-0">Data Siswa</h1>
+          <h1 class="text-white mb-0">Data Siswa</h1>
+          <div class="btn-group dropright mt-2">
+            <button class="btn btn-default btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Tahun Akademik
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              @foreach ($tahun_angkatan as $ta)
+                <a class="dropdown-item {{ $ta->id == $cur_ta ? 'active bg-dark text-white' : '' }}" href="{{ route('data-siswa.show', $ta->id) }}">{{ $ta->ta }}</a>
+              @endforeach
+            </div>
+          </div>
         </div>
         @if (auth()->user()->level == 'admin')
           <div class="col-lg-6 col-5 text-right">

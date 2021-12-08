@@ -9,12 +9,14 @@
         <div class="col-lg-6 col-7">
           <h1 class="text-white d-inline-block mb-0">Tahun Akademik</h1>
         </div>
-        <div class="col-lg-6 col-5 text-right">
-          <button type="button" class="btn btn-sm btn-neutral" data-toggle="modal" data-target="#tambah-ta">
-            <i class="fas fa-plus"></i>
-            Tambah Tahun Akademik
-          </button>
-        </div>
+        @if (auth()->user()->level == 'admin')
+          <div class="col-lg-6 col-5 text-right">
+            <button type="button" class="btn btn-sm btn-neutral" data-toggle="modal" data-target="#tambah-ta">
+              <i class="fas fa-plus"></i>
+              Tambah Tahun Akademik
+            </button>
+          </div>
+        @endif
       </div>
     </div>
   </div>
@@ -41,7 +43,9 @@
                 <th>No</th>
                 <th>Tahun Akademik</th>
                 <th>Status Aktif</th>
-                <th></th>
+                @if (auth()->user()->level == 'admin')
+                  <th></th>
+                @endif
               </tr>
             </thead>
             <tbody>
@@ -54,16 +58,18 @@
                     <span class="badge badge-pill badge-success mr-3">Aktif</span>
                   @endif
                 </td>
-                <td>
-                  <div class="btn-group" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-sm table-action table-action" data-toggle="modal" data-target="#edit-ta-{{ $item->id }}">
-                      <i class="fas fa-edit" data-toggle="tooltip" title="Edit"></i>
-                    </button>
-                    <button type="button" class="btn btn-sm table-action table-action-delete" data-toggle="modal" data-target="#hapus-ta-{{ $item->id }}" {{ $item->aktif ? 'disabled' : ''}}>
-                      <i class="fas fa-trash" data-toggle="tooltip" title="Hapus"></i>
-                    </button>
-                  </div>
-                </td>
+                @if (auth()->user()->level == 'admin')
+                  <td>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                      <button type="button" class="btn btn-sm table-action table-action" data-toggle="modal" data-target="#edit-ta-{{ $item->id }}">
+                        <i class="fas fa-edit" data-toggle="tooltip" title="Edit"></i>
+                      </button>
+                      <button type="button" class="btn btn-sm table-action table-action-delete" data-toggle="modal" data-target="#hapus-ta-{{ $item->id }}" {{ $item->aktif ? 'disabled' : ''}}>
+                        <i class="fas fa-trash" data-toggle="tooltip" title="Hapus"></i>
+                      </button>
+                    </div>
+                  </td>
+                @endif
               </tr>
               @endforeach
             </tbody>

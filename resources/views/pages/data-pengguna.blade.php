@@ -9,16 +9,18 @@
         <div class="col-lg-6 col-7">
           <h1 class="text-white d-inline-block mb-0">Data Pengguna</h1>
         </div>
-        <div class="col-lg-6 col-5 text-right">
-          <button type="button" class="btn btn-sm btn-default" data-toggle="modal" data-target="#tambah-instruktur">
-            <i class="fas fa-plus"></i>
-            Tambah Instruktur
-          </button>
-          <button type="button" class="btn btn-sm btn-neutral" data-toggle="modal" data-target="#tambah-pejabat">
-            <i class="fas fa-plus"></i>
-            Tambah Pejabat Utama
-          </button>
-        </div>
+        @if (auth()->user()->level == 'admin')
+          <div class="col-lg-6 col-5 text-right">
+            <button type="button" class="btn btn-sm btn-default" data-toggle="modal" data-target="#tambah-instruktur">
+              <i class="fas fa-plus"></i>
+              Tambah Instruktur
+            </button>
+            <button type="button" class="btn btn-sm btn-neutral" data-toggle="modal" data-target="#tambah-pejabat">
+              <i class="fas fa-plus"></i>
+              Tambah Pejabat Utama
+            </button>
+          </div>
+        @endif
       </div>
     </div>
   </div>
@@ -55,14 +57,21 @@
                 <th>NRP</th>
                 <th>Nama</th>
                 <th>Tipe Pengguna</th>
-                <th></th>
+                @if (auth()->user()->level == 'admin')
+                  <th></th>
+                @endif
               </tr>
             </thead>
             <tbody>
               @foreach ($items as $item)
               <tr>
                 <th>{{ $item->nrp }}</th>
-                <td>{{ $item->name }}</td>
+                <td>
+                  {{ $item->name }}
+                  @if ($item->id == auth()->user()->id)
+                    <small class="text-muted"><b>(Saya)</b></small>
+                  @endif
+                </td>
                 <td>
                   @if ($item->level == 'admin')
                     <span class="badge badge-pill badge-success mr-3">Admin</span>
@@ -72,16 +81,18 @@
                     <span class="badge badge-pill badge-info mr-3">Pejabat Utama</span>
                   @endif
                 </td>
-                <td>
-                  <div class="btn-group" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-sm table-action table-action" data-toggle="modal" data-target="#edit-pengguna-{{ $item->id }}">
-                      <i class="fas fa-user-edit" data-toggle="tooltip" title="Edit"></i>
-                    </button>
-                    <button type="button" class="btn btn-sm table-action table-action-delete" data-toggle="modal" data-target="#hapus-pengguna-{{ $item->id }}" {{ $item->level == 'admin' ? 'disabled' : '' }}>
-                      <i class="fas fa-trash" data-toggle="tooltip" title="Hapus"></i>
-                    </button>
-                  </div>
-                </td>
+                @if (auth()->user()->level == 'admin')
+                  <td>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                      <button type="button" class="btn btn-sm table-action table-action" data-toggle="modal" data-target="#edit-pengguna-{{ $item->id }}">
+                        <i class="fas fa-user-edit" data-toggle="tooltip" title="Edit"></i>
+                      </button>
+                      <button type="button" class="btn btn-sm table-action table-action-delete" data-toggle="modal" data-target="#hapus-pengguna-{{ $item->id }}" {{ $item->level == 'admin' ? 'disabled' : '' }}>
+                        <i class="fas fa-trash" data-toggle="tooltip" title="Hapus"></i>
+                      </button>
+                    </div>
+                  </td>
+                @endif
               </tr>
               @endforeach
             </tbody>

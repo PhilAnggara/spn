@@ -17,11 +17,12 @@ class CreateNilaiTable extends Migration
             $table->id();
             $table->foreignId('id_siswa');
             $table->foreignId('id_mapel');
-            $table->integer('tugas_kelas');
-            $table->integer('tugas_individu');
-            $table->integer('praktikum');
-            $table->integer('uas');
-            $table->integer('nilai');
+            $table->integer('tugas_kelas')->nullable();
+            $table->integer('tugas_individu')->nullable();
+            $table->integer('praktikum')->nullable();
+            $table->integer('mental')->nullable();
+            $table->integer('uas')->nullable();
+            $table->integer('nilai')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

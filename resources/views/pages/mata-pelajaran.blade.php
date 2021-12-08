@@ -9,12 +9,14 @@
         <div class="col-lg-6 col-7">
           <h1 class="text-white d-inline-block mb-0">Daftar Mata Pelajaran</h1>
         </div>
-        <div class="col-lg-6 col-5 text-right">
-          <button type="button" class="btn btn-sm btn-neutral" data-toggle="modal" data-target="#tambah-mapel">
-            <i class="fas fa-plus"></i>
-            Tambah Mata Pelajaran
-          </button>
-        </div>
+        @if (auth()->user()->level == 'admin')
+          <div class="col-lg-6 col-5 text-right">
+            <button type="button" class="btn btn-sm btn-neutral" data-toggle="modal" data-target="#tambah-mapel">
+              <i class="fas fa-plus"></i>
+              Tambah Mata Pelajaran
+            </button>
+          </div>
+        @endif
       </div>
     </div>
   </div>
@@ -41,7 +43,9 @@
                 <th>Mata Pelajaran</th>
                 <th>Instruktur</th>
                 <th>Tahun Akademik</th>
-                <th></th>
+                @if (auth()->user()->level == 'admin')
+                  <th></th>
+                @endif
               </tr>
             </thead>
             <tbody>
@@ -50,6 +54,7 @@
                 <td>{{ $item->nama_mapel }}</td>
                 <td>{{ $item->instruktur->name }}</td>
                 <td>{{ $item->ta->ta }}</td>
+                @if (auth()->user()->level == 'admin')
                 <td>
                   <div class="btn-group" role="group" aria-label="Basic example">
                     <button type="button" class="btn btn-sm table-action table-action" data-toggle="modal" data-target="#edit-mapel-{{ $item->id }}">
@@ -60,6 +65,7 @@
                     </button>
                   </div>
                 </td>
+                @endif
               </tr>
               @endforeach
             </tbody>

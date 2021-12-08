@@ -32,24 +32,25 @@
         <hr class="my-3">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link {{ Request::is('data-siswa') ? 'active' : '' }}" href="{{ route("data-siswa.index") }}">
+            <a class="nav-link {{ Request::is('data-siswa*') ? 'active' : '' }}" href="{{ route("data-siswa.index") }}">
               <i class="far fa-users text-primary"></i>
               <span class="nav-link-text">Data Siswa</span>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link {{ Request::is('daftar-nilai') ? 'active' : '' }}" href="{{ route("daftar-nilai.index") }}">
-              <i class="far fa-file-chart-line text-primary"></i>
-              <span class="nav-link-text">Daftar Nilai</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {{ Request::is('mata-pelajaran') ? 'active' : '' }}" href="{{ route("mata-pelajaran.index") }}">
-              <i class="far fa-books text-primary"></i>
-              <span class="nav-link-text">Mata Pelajaran</span>
-            </a>
-          </li>
-          {{-- @if (auth()->user()->level == 'admin') --}}
+
+          @if (auth()->user()->level == 'admin' || auth()->user()->level == 'pejabat')
+            <li class="nav-item">
+              <a class="nav-link {{ Request::is('daftar-nilai') ? 'active' : '' }}" href="{{ route("daftar-nilai.index") }}">
+                <i class="far fa-file-chart-line text-primary"></i>
+                <span class="nav-link-text">Daftar Nilai</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {{ Request::is('mata-pelajaran') ? 'active' : '' }}" href="{{ route("mata-pelajaran.index") }}">
+                <i class="far fa-books text-primary"></i>
+                <span class="nav-link-text">Mata Pelajaran</span>
+              </a>
+            </li>
             <li class="nav-item">
               <a class="nav-link {{ Request::is('tahun-akademik') ? 'active' : '' }}" href="{{ route("tahun-akademik.index") }}">
                 <i class="far fa-calendar-alt text-primary"></i>
@@ -62,7 +63,17 @@
                 <span class="nav-link-text">Data Pengguna</span>
               </a>
             </li>
-          {{-- @endif --}}
+          @endif
+
+          @if (auth()->user()->level == 'instruktur')
+            <li class="nav-item">
+              <a class="nav-link {{ Request::is('nilai-siswa*') ? 'active' : '' }}" href="{{ route("nilai-siswa.index") }}">
+                <i class="far fa-file-chart-line text-primary"></i>
+                <span class="nav-link-text">Nilai Siswa</span>
+              </a>
+            </li>
+          @endif
+
           {{-- <li class="nav-item">
             <a class="nav-link {{ Request::is('tentang') ? 'active' : '' }}" href="{{ route("about") }}">
               <i class="far fa-info-circle text-primary"></i>
